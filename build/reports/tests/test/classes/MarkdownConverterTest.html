@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class MarkdownConverterTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class MarkdownConverterTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/default-package.html">default-package</a> &gt; MarkdownConverterTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">11</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.191s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testAnchorLink()</td>
+<td class="success">0.057s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testComplexInput()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testComplexNestedInput()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testDisplayMenu()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testEmptyString()</td>
+<td class="success">0.007s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testHandleFileInput()</td>
+<td class="success">0.110s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testHeading()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testMultilineInput()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testMultilineParagraph()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testNestedInput()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testParagraph()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>Mar 18, 2024 8:23:18 AM org.markdown.MarkdownConverter handleFileInput
+INFO: &lt;h1&gt;Sample Document&lt;/h1&gt;
+
+&lt;p&gt;Hello!&lt;/p&gt;
+
+&lt;p&gt;This is sample markdown for the &lt;a href=&quot;https://www.mailchimp.com&quot;&gt;Mailchimp&lt;/a&gt; homework assignment.&lt;/p&gt;
+
+&lt;h1&gt;Header one&lt;/h1&gt;
+
+&lt;p&gt;Hello there&lt;/p&gt;
+
+&lt;p&gt;How are you?
+What's going on?&lt;/p&gt;
+
+&lt;h2&gt;Another Header&lt;/h2&gt;
+
+&lt;p&gt;This is a paragraph &lt;a href=&quot;http://google.com&quot;&gt;with an inline link&lt;/a&gt;. Neat, eh?&lt;/p&gt;
+
+&lt;h2&gt;This is a header &lt;a href=&quot;http://yahoo.com&quot;&gt;with a link&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h1&gt;Heading 1&lt;/h1&gt;
+
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+
+&lt;p&gt;Another paragraph.&lt;/p&gt;
+
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+
+&lt;p&gt;This is a &lt;a href=&quot;http://example.com&quot;&gt;link&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+
+&lt;p&gt;Yet another paragraph.&lt;/p&gt;
+
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+
+&lt;p&gt;This is a &lt;a href=&quot;http://nested.example.com&quot;&gt;nested link&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h6&gt;Heading 6&lt;/h6&gt;
+
+&lt;p&gt;Final paragraph.&lt;/p&gt;
+
+&lt;h1&gt;Main Heading&lt;/h1&gt;
+
+&lt;p&gt;This is a &lt;a href=&quot;http://example.com&quot;&gt;link&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Sub Heading &lt;a href=&quot;http://nested.example.com&quot;&gt;with a [nested link]&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h1&gt;Heading&lt;/h1&gt;
+
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;h2&gt;Subheading&lt;/h2&gt;
+
+&lt;p&gt;Another paragraph.&lt;/p&gt;
+
+&lt;h1&gt;No Content&lt;/h1&gt;
+
+&lt;h1&gt;Main Heading&lt;/h1&gt;
+
+&lt;h2&gt;Sub Heading &lt;a href=&quot;http://nested.example.com&quot;&gt;with a [nested link]&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h3&gt;Another Sub Heading&lt;/h3&gt;
+
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;h1&gt;Heading &lt;a href=&quot;http://example.com&quot;&gt;with a [nested link]&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;This is a link with a line break &lt;a href=&quot;https://www.example.com&quot;&gt;unexpected line break&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This is a paragraph with a heading inside:
+&lt;h2&gt;This is a nested heading&lt;/h2&gt;
+This continues the paragraph.&lt;/p&gt;
+
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;p&gt;This is another paragraph.&lt;/p&gt;
+
+&lt;p&gt;This is a paragraph with &lt;a href=&quot;https://example.com&quot;&gt;a link&lt;/a&gt; and text. Another &lt;a href=&quot;https://example.org&quot;&gt;link&lt;/a&gt; in the same paragraph.&lt;/p&gt;
+
+
+Mar 18, 2024 8:23:18 AM org.markdown.MarkdownConverter displayMenu
+INFO: 
+-----------------------------------------------------------------------------------
+Markdown to HTML Converter
+-----------------------------------------------------------------------------------
+1. Select option 1 to convert Markdown to HTML
+2. Exit
+-----------------------------------------------------------------------------------
+
+Select an option: 
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.4</a> at Mar 18, 2024, 8:23:18 AM</p>
+</div>
+</div>
+</body>
+</html>

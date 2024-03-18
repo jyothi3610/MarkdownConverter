@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MarkdownConverterTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2024-03-18T12:23:18" hostname="DESKTOP-E9B9KNG" time="0.219">
+  <properties/>
+  <testcase name="testAnchorLink()" classname="MarkdownConverterTest" time="0.057"/>
+  <testcase name="testParagraph()" classname="MarkdownConverterTest" time="0.002"/>
+  <testcase name="testMultilineParagraph()" classname="MarkdownConverterTest" time="0.002"/>
+  <testcase name="testHandleFileInput()" classname="MarkdownConverterTest" time="0.11"/>
+  <testcase name="testComplexNestedInput()" classname="MarkdownConverterTest" time="0.002"/>
+  <testcase name="testHeading()" classname="MarkdownConverterTest" time="0.001"/>
+  <testcase name="testEmptyString()" classname="MarkdownConverterTest" time="0.007"/>
+  <testcase name="testComplexInput()" classname="MarkdownConverterTest" time="0.001"/>
+  <testcase name="testDisplayMenu()" classname="MarkdownConverterTest" time="0.004"/>
+  <testcase name="testMultilineInput()" classname="MarkdownConverterTest" time="0.002"/>
+  <testcase name="testNestedInput()" classname="MarkdownConverterTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Mar 18, 2024 8:23:18 AM org.markdown.MarkdownConverter handleFileInput
+INFO: <h1>Sample Document</h1>
+
+<p>Hello!</p>
+
+<p>This is sample markdown for the <a href="https://www.mailchimp.com">Mailchimp</a> homework assignment.</p>
+
+<h1>Header one</h1>
+
+<p>Hello there</p>
+
+<p>How are you?
+What's going on?</p>
+
+<h2>Another Header</h2>
+
+<p>This is a paragraph <a href="http://google.com">with an inline link</a>. Neat, eh?</p>
+
+<h2>This is a header <a href="http://yahoo.com">with a link</a></h2>
+
+<h1>Heading 1</h1>
+
+<p>This is a paragraph.</p>
+
+<h2>Heading 2</h2>
+
+<p>Another paragraph.</p>
+
+<h3>Heading 3</h3>
+
+<p>This is a <a href="http://example.com">link</a>.</p>
+
+<h4>Heading 4</h4>
+
+<p>Yet another paragraph.</p>
+
+<h5>Heading 5</h5>
+
+<p>This is a <a href="http://nested.example.com">nested link</a>.</p>
+
+<h6>Heading 6</h6>
+
+<p>Final paragraph.</p>
+
+<h1>Main Heading</h1>
+
+<p>This is a <a href="http://example.com">link</a>.</p>
+
+<h2>Sub Heading <a href="http://nested.example.com">with a [nested link]</a></h2>
+
+<h1>Heading</h1>
+
+<p>This is a paragraph.</p>
+
+<h2>Subheading</h2>
+
+<p>Another paragraph.</p>
+
+<h1>No Content</h1>
+
+<h1>Main Heading</h1>
+
+<h2>Sub Heading <a href="http://nested.example.com">with a [nested link]</a></h2>
+
+<h3>Another Sub Heading</h3>
+
+<p>This is a paragraph.</p>
+
+<h1>Heading <a href="http://example.com">with a [nested link]</a></h1>
+
+<p>This is a link with a line break <a href="https://www.example.com">unexpected line break</a></p>
+
+<p>This is a paragraph with a heading inside:
+<h2>This is a nested heading</h2>
+This continues the paragraph.</p>
+
+<p>This is a paragraph.</p>
+
+<p>This is another paragraph.</p>
+
+<p>This is a paragraph with <a href="https://example.com">a link</a> and text. Another <a href="https://example.org">link</a> in the same paragraph.</p>
+
+
+Mar 18, 2024 8:23:18 AM org.markdown.MarkdownConverter displayMenu
+INFO: 
+-----------------------------------------------------------------------------------
+Markdown to HTML Converter
+-----------------------------------------------------------------------------------
+1. Select option 1 to convert Markdown to HTML
+2. Exit
+-----------------------------------------------------------------------------------
+
+Select an option: 
+]]></system-err>
+</testsuite>

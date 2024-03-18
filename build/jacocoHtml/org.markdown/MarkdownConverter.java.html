@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MarkdownConverter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MarkdownConverter</a> &gt; <a href="index.source.html" class="el_package">org.markdown</a> &gt; <span class="el_source">MarkdownConverter.java</span></div><h1>MarkdownConverter.java</h1><pre class="source lang-java linenums">package org.markdown;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.logging.Logger;
+
+<span class="nc" id="L11">public class MarkdownConverter {</span>
+
+<span class="fc" id="L13">    private static final Logger logger = Logger.getLogger(MarkdownConverter.class.getName());</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L16">        selectMenuOption();</span>
+<span class="nc" id="L17">    }</span>
+
+    public static void displayMenu() {
+<span class="fc" id="L20">        String menu = &quot;\n&quot; +</span>
+                &quot;-----------------------------------------------------------------------------------\n&quot; +
+                &quot;Markdown to HTML Converter\n&quot; +
+                &quot;-----------------------------------------------------------------------------------\n&quot; +
+                &quot;1. Select option 1 to convert Markdown to HTML\n&quot; +
+                &quot;2. Exit\n&quot; +
+                &quot;-----------------------------------------------------------------------------------\n&quot; +
+                &quot;\nSelect an option: &quot;;
+
+<span class="fc" id="L29">        logger.info(menu);</span>
+<span class="fc" id="L30">    }</span>
+
+    public static void selectMenuOption() {
+<span class="nc" id="L33">        Scanner sc = new Scanner(System.in);</span>
+        while (true) {
+<span class="nc" id="L35">            displayMenu();</span>
+<span class="nc" id="L36">            int input = sc.nextInt();</span>
+<span class="nc bnc" id="L37" title="All 3 branches missed.">            switch (input) {</span>
+                case 1:
+<span class="nc" id="L39">                    logger.info(&quot;Enter the path of the Markdown file to convert: &quot;);</span>
+<span class="nc" id="L40">                    sc.nextLine();</span>
+<span class="nc" id="L41">                    String filePath = sc.nextLine();</span>
+<span class="nc" id="L42">                    logger.info(&quot;Converted HTML&quot;);</span>
+<span class="nc bnc" id="L43" title="All 4 branches missed.">                    if (filePath.isEmpty() || filePath.isBlank()) {</span>
+<span class="nc" id="L44">                        filePath = &quot;./input1.md&quot;;</span>
+<span class="nc" id="L45">                        logger.info(&quot;The specified file path is blank, using the default file : &quot; + filePath);</span>
+                    }
+<span class="nc" id="L47">                    handleFileInput(filePath);</span>
+<span class="nc" id="L48">                    break;</span>
+                case 2:
+<span class="nc" id="L50">                    logger.info(&quot;Exiting the program...&quot;);</span>
+<span class="nc" id="L51">                    System.exit(0);</span>
+<span class="nc" id="L52">                    break;</span>
+                default:
+<span class="nc" id="L54">                    logger.info(input + &quot; is not a valid option. Please select an option from the above menu.\n&quot;);</span>
+                    break;
+            }
+<span class="nc" id="L57">        }</span>
+    }
+
+    public static void handleFileInput(String fileName) {
+        String htmlText;
+        try {
+<span class="fc" id="L63">            Scanner scanner = new Scanner(new File(fileName));</span>
+<span class="fc" id="L64">            StringBuilder stringBuilder = new StringBuilder();</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">            while (scanner.hasNextLine()) {</span>
+<span class="fc" id="L66">                stringBuilder.append(scanner.nextLine()).append(&quot;\n&quot;);</span>
+            }
+<span class="fc" id="L68">            scanner.close();</span>
+<span class="fc" id="L69">            String markdownInput = stringBuilder.toString();</span>
+<span class="fc" id="L70">            htmlText = convertToHtml(markdownInput);</span>
+<span class="fc" id="L71">            logger.info(htmlText);</span>
+<span class="nc" id="L72">        } catch (FileNotFoundException e) {</span>
+<span class="nc" id="L73">            logger.log(Level.SEVERE, &quot;ERROR: The system cannot find the specified file path: &quot; + fileName + &quot;\nPlease try again with the correct path&quot;,  e);</span>
+<span class="nc" id="L74">        } catch (Exception e) {</span>
+<span class="nc" id="L75">            logger.log(Level.SEVERE, &quot;ERROR: Unexpected error occurred&quot;, e);</span>
+<span class="pc" id="L76">        }</span>
+<span class="fc" id="L77">    }</span>
+
+    public static String convertToHtml(String markdown) {
+<span class="fc" id="L80">        markdown = convertHeadings(markdown);</span>
+<span class="fc" id="L81">        markdown = convertLinks(markdown);</span>
+<span class="fc" id="L82">        markdown = convertParagraphs(markdown);</span>
+<span class="fc" id="L83">        return markdown;</span>
+    }
+
+    private static String convertHeadings(String markdown) {
+<span class="fc" id="L87">        Pattern pattern = Pattern.compile(&quot;^(#{1,6})\\s+(.+)$&quot;, Pattern.MULTILINE);</span>
+<span class="fc" id="L88">        Matcher matcher = pattern.matcher(markdown);</span>
+<span class="fc" id="L89">        StringBuilder html = new StringBuilder();</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">        while (matcher.find()) {</span>
+<span class="fc" id="L91">            int level = matcher.group(1).length();</span>
+<span class="fc" id="L92">            String heading = matcher.group(2);</span>
+<span class="fc" id="L93">            String replacement = &quot;&lt;h&quot; + level + &quot;&gt;&quot; + heading + &quot;&lt;/h&quot; + level + &quot;&gt;&quot;;</span>
+<span class="fc" id="L94">            matcher.appendReplacement(html, replacement);</span>
+<span class="fc" id="L95">        }</span>
+<span class="fc" id="L96">        matcher.appendTail(html);</span>
+<span class="fc" id="L97">        return html.toString();</span>
+    }
+
+    private static String convertParagraphs(String markdown) {
+<span class="fc" id="L101">        String[] paragraphs = markdown.split(&quot;\\n{2,}&quot;);</span>
+
+<span class="fc" id="L103">        StringBuilder html = new StringBuilder();</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">        for (String paragraph : paragraphs) {</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">            if (!paragraph.isEmpty()) {</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">                if (paragraph.matches(&quot;^(&lt;h\\d|&lt;a)\\s*[^&gt;]*&gt;.*&quot;)) {</span>
+<span class="fc" id="L107">                    html.append(paragraph).append(&quot;\n\n&quot;);</span>
+                } else {
+<span class="fc" id="L109">                    html.append(&quot;&lt;p&gt;&quot;).append(paragraph.trim()).append(&quot;&lt;/p&gt;\n\n&quot;);</span>
+                }
+            }
+        }
+
+<span class="fc" id="L114">        return html.toString();</span>
+    }
+
+    private static String convertLinks(String markdown) {
+<span class="fc" id="L118">        return markdown.replaceAll(&quot;\\[(.*?)]\\((.*?)\\)&quot;, &quot;&lt;a href=\&quot;$2\&quot;&gt;$1&lt;/a&gt;&quot;);</span>
+    }
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
